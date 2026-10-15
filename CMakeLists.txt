@@ -59,7 +59,7 @@ endif()
 if(MSVC)
   # Nuke usa el runtime dinámico (/MD); LibRaw estático debe usar el mismo.
   set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreadedDLL")
-  add_compile_definitions(NOMINMAX _CRT_SECURE_NO_WARNINGS)
+  add_compile_definitions(NOMINMAX _CRT_SECURE_NO_WARNINGS _USE_MATH_DEFINES)
 endif()
 
 # -----------------------------------------------------------------------------
