@@ -1,0 +1,3 @@
+build*/
+*.pfm
+__pycache__/

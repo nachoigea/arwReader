@@ -1,0 +1,39 @@
+#! Nuke 14.0
+# Ejemplo: Read de un .ARW -> Grade -> ColorCorrect -> Write EXR float.
+# Cambia las rutas de 'file' en el Read y el Write antes de usarlo.
+Read {
+ inputs 0
+ file "C:/fotos/DSC00001.ARW"
+ arw_space "linear Rec.709 (sRGB)"
+ arw_exposure 0
+ arw_wb "as shot"
+ arw_highlights "unclip (conservar todo)"
+ arw_demosaic AHD
+ colorspace linear
+ name Read_ARW
+ xpos 0
+ ypos 0
+}
+Grade {
+ white 1.15
+ gamma 1.05
+ name Grade1
+ xpos 0
+ ypos 100
+}
+ColorCorrect {
+ saturation 1.1
+ highlights.gain 0.9
+ name ColorCorrect1
+ xpos 0
+ ypos 160
+}
+Write {
+ file "C:/render/DSC00001_grade.exr"
+ file_type exr
+ datatype "32 bit float"
+ colorspace linear
+ name Write_EXR
+ xpos 0
+ ypos 240
+}
